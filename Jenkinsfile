@@ -3,17 +3,14 @@ pipeline {
     tools{
         jdk 'java-11'
         maven 'maven'
-
     }
     stages{
         stage('git checkout'){
             steps{
                 git branch: 'main', url: 'https://github.com/Vasudev-N-H/test-1.git'
             }
-
-             }
         }
-        stage('compile'){ 
+        stage('compile'){
             steps{
                 sh "mvn compile"
             }
@@ -24,4 +21,4 @@ pipeline {
             }
         }
     }
-
+}

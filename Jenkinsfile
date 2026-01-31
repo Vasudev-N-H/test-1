@@ -27,8 +27,13 @@ pipeline {
         }
         stage('Containersation'){
             steps{
-                sh 'docker run -it -d --name c1 -p 8001:8000 Vasudev-N-H/project:1'
+                sh '''
+                    docker stop c1
+                    docker rm c1
+                    docker run -it -d --name c1 -p 8001:8000 Vasudev-N-H/project:1
+                '''
             }
         }
+         
     }
 }
